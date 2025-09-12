@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function HeroBanner() {
     return(<>
      <section className="relative bg-[url('/badminton-banner.jpg')] bg-cover bg-center h-[500px] flex items-center justify-center">
         <div className="bg-black/50 p-10 rounded-xl text-center text-white">

@@ -1,27 +1,36 @@
 import Categories from "@/components/Categories";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
+import Hero from "@/components/HeroBanner";
 import PromotionBanner from "@/components/PromotionBanner";
+import YonexRackets from "@/components/YonexRackets";
+import { db } from "@/lib/firebase";
 
-export default function HomePage() {
+import { collection, getDocs } from "firebase/firestore";
+
+export default async function HomePage() {
+  const racketsCol = collection(db, "products");
+  const snapshot = await getDocs(racketsCol);
+
+  const rackets = snapshot.docs.map((doc) => ({
+    id: doc.id, // Firestore's doc ID
+    ...doc.data(),
+  }));
   return (
     <div className="bg-gray-50 text-gray-900">
       {/* Hero Section */}
-     <Hero/>
+      <Hero />
 
       {/* Featured Products */}
-     <FeaturedProducts/>
+      <YonexRackets rackets={rackets} />
 
       {/* Categories */}
-   <Categories/>
+      <Categories />
 
       {/* Promo Banner */}
-      <PromotionBanner/>
+      <PromotionBanner />
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-6 text-center">
-        <p>© 2025 Yonex Shop. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
