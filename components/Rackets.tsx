@@ -26,11 +26,11 @@ export default async function Rackets({ rackets }: { rackets: Racket[] }) {
               height={400}
               className="w-full h-56 object-cover"
             />
-            <div className="p-4 text-center">
+            <div className="p-4 text-center flex flex-col justify-between h-40">
               <h3 className="font-semibold text-lg">{racket.name}</h3>
               <p className="text-yellow-600 font-bold">{racket.price}</p>
               <button className="mt-3 w-full bg-yellow-400 text-black py-2 rounded-lg font-medium hover:bg-yellow-300 transition">
-                Add to Cart to buy
+                Add to Cart
               </button>
             </div>
           </div>
