@@ -1,12 +1,18 @@
-"use client";
-
-import { Racket } from "@/types";
+import { Racket } from "@/types/rackets";
 import Image from "next/image";
 
-export default function YonexRackets({ rackets }: { rackets: Racket[] }) {
+export default async function Rackets({ rackets }: { rackets: Racket[] }) {
   return (
     <section className="max-w-6xl mx-auto py-16 px-6">
-      <h2 className="text-3xl font-bold mb-8 text-center">Yonex Racquets</h2>
+      <div className="flex justify-between items-center mb-8">
+        <h2 className="text-3xl font-bold mb-8">Yonex Racquets</h2>
+        <a
+          href="/products"
+          className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition"
+        >
+          See more
+        </a>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {rackets.map((racket: Racket) => (
           <div
