@@ -24,7 +24,7 @@ export default function YonexRackets({ rackets }: { rackets: Racket[] }) {
               <h3 className="font-semibold text-lg">{racket.name}</h3>
               <p className="text-yellow-600 font-bold">{racket.price}</p>
               <button className="mt-3 w-full bg-yellow-400 text-black py-2 rounded-lg font-medium hover:bg-yellow-300 transition">
-                Add to Cart
+                Add to Cart to buy
               </button>
             </div>
           </div>
