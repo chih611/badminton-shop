@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getRacketsPage } from "@/lib/getRackets";
 import { DocumentData, QueryDocumentSnapshot } from "firebase/firestore";
 import Image from "next/image";
+import { Racket } from "@/types/rackets";
 
 export default function ProductsPage() {
-  const [rackets, setRackets] = useState<any[]>([]);
+  const [rackets, setRackets] = useState<Racket[]>([]);
+
   const [lastDoc, setLastDoc] =
     useState<QueryDocumentSnapshot<DocumentData> | null>(null);
   const [loading, setLoading] = useState(false);
@@ -15,13 +17,13 @@ export default function ProductsPage() {
     loadMore(); // load first page
   }, []);
 
-  const loadMore = async () => {
+  const loadMore = useCallback(async () => {
     setLoading(true);
     const { items, lastVisible } = await getRacketsPage(lastDoc);
-    setRackets((prev) => [...prev, ...items]);
+    setRackets((prev) => [...prev, ...items] as Racket[]);
     setLastDoc(lastVisible);
     setLoading(false);
-  };
+  }, [lastDoc]); // include dependencies
 
   return (
     <div className="p-6">
