@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function YonexRackets({ rackets }: { rackets: Racket[] }) {
   return (
     <section className="max-w-6xl mx-auto py-16 px-6">
-      <h2 className="text-3xl font-bold mb-8 text-center">Yonex Racquets</h2>
+      {/* <h2 className="text-3xl font-bold mb-8 text-center">Yonex Racquets</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {rackets.map((racket: Racket) => (
           <div
@@ -29,7 +29,7 @@ export default function YonexRackets({ rackets }: { rackets: Racket[] }) {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }
